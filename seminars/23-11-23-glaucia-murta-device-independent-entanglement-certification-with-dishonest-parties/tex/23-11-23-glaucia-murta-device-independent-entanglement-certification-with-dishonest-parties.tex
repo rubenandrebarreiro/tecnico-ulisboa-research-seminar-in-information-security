@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uppsala University Assignment Title Page 
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (http://en.wikibooks.org/wiki/LaTeX/Title_Creation)
+% Modified by Elsa Slattegard to fit Uppsala university
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+%\title{Title page with logo}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[ruled,vlined]{algorithm2e}
+
+\setlength {\marginparwidth }{2cm}
+
+\begin{document}
+    \begin{titlepage}
+    
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+    
+    \center % Center everything on the page
+     
+    %----------------------------------------------------------------------------------------
+    %	HEADING SECTIONS
+    %----------------------------------------------------------------------------------------
+    
+    \textsc{\LARGE{T\'{e}cnico Lisboa} \\ \vspace{0.5cm} \LARGE{University of Lisbon}}\\[1cm] % Name of your university/college
+    \vspace{-2cm}
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{.5\textwidth}
+            \centering
+            \phantom{............}\includegraphics[width=.9\linewidth]{figures/logos/university-lisbon-logo.png}
+        \end{minipage}%
+        \begin{minipage}{.5\textwidth}
+            \centering
+            \hspace{-1cm}
+            \includegraphics[width=.9\linewidth]{figures/logos/tecnico-ulisboa-logo.png}
+        \end{minipage}
+    \end{figure}
+    \vspace{-1cm}
+     % Include a department/university logo - this will require the graphicx package
+    \textsc{\Large Research Seminar in Information Security}\\[0.5cm] % Major heading such as course name
+    \textsc{(Prof. Paulo \uppercase{Mateus})}\\[0.5cm]
+    \textsc{Doctoral Program in Information Security}\\[0.5cm] % Minor heading such as course title
+    \textsc{\large 2023/2024 - 1\textsuperscript{st} Semester}\\[0.5cm] % Minor heading such as course title
+    
+    %----------------------------------------------------------------------------------------
+    %	TITLE SECTION
+    %----------------------------------------------------------------------------------------
+    
+    \HRule \\[0.3cm]
+        { \huge \bfseries Device-Independent Entanglement Certification with Dishonest Parties \\ \vspace{0.5cm} \Large (Gl\'{a}ucia \textsc{\uppercase{Murta}} - November 23, 2023)}\\[0.4cm] % Title of your document
+    \HRule \\[1cm]
+     
+    %----------------------------------------------------------------------------------------
+    %	AUTHOR SECTION
+    %----------------------------------------------------------------------------------------
+    
+    \begin{minipage}{0.75\textwidth}
+    
+        \begin{flushleft} \large
+            \textbf{Report written by:}\\
+            \begin{itemize}
+                \vspace{-0.1cm}
+                \item \normalsize{Rúben \textsc{\uppercase{Barreiro}}:\\
+                - \href{mailto:ruben.andre.letra.barreiro@tecnico.ulisboa.pt}{\emph{ruben.andre.letra.barreiro@tecnico.ulisboa.pt}}}
+            \end{itemize}
+        \end{flushleft}
+    
+    \end{minipage}\\[2cm]
+    \vspace{-1cm}    
+    % If you don't want a supervisor, uncomment the two lines below and remove the section above
+    %\Large \emph{Author:}\\
+    %John \textsc{Smith}\\[3cm] % Your name
+    
+    %----------------------------------------------------------------------------------------
+    %	DATE SECTION
+    %----------------------------------------------------------------------------------------
+    
+    {\large{Last updated: \today}}\\[2cm] % Date, change the \today to a set date if you want to be precise
+    
+    \vfill % Fill the rest of the page with whitespace
+
+    \end{titlepage}
+
+    \clearpage
+
+    
+    \section{Motivation}
+    \label{sec:motivation}
+
+    One of the tasks of interest in this seminar is to address how to certify some resource states and their quantum properties distributed in a future\break (experimental) Quantum Communication Network connecting several\break quantum devices (or quantum nodes) in different places. These quantum properties can be entanglement properties of those resource states distributed on a Quantum Communication Network involving some scenario aspects, such as geographic proximity or political relations. These quantum nodes might be prone to collaborate with each other, so we cannot assume they do their tasks independently. In these scenarios, we would like to certify the entanglement properties even in the presence of some dishonest party. Here, the minimal level of characterization we would want to guarantee for these quantum network systems is that they are Device-Independent (DI). In this characterization scenario, we assume that there might exist some dishonest parties in the quantum network. However, we also want to keep the privacy of the operations and tasks performed by the quantum nodes or devices in that quantum network. Thus, the main goal of a DI scenario would be for these quantum nodes and devices to perform these operations and tasks only based on statistics of inputs and outputs rather than the exact details of the laboratories of the experimental setup for this designed quantum network.
+
+    This seminar addresses aspects of a research work published by Gl\'{a}ucia Murta from Heinrich-Heine University of D\"{u}sseldorf in collaboration with Flavio Baccari from Max-Planck Institute of Quantum Optics, where they introduced a framework for DI entanglement certification with the presence\break of dishonest parties, obtaining some self-testing properties and a robust\break certification of resource states such as GHZ states in these scenarios \cite{murta-baccari:self-testing-dishonest-parties-dishonest-parties-device-independent-entanglement-certification-quantum-communication-networks:2023:02-2024}.
+    
+    \section{Entanglement Certification}
+    \label{sec:entanglement-certification}
+
+    The first part of this seminar addressed a simple qualitative overview of the scenario previously introduced, with only an entanglement verification of a simple quantum network. In this simple scenario, instead of having several\break different clusters of collaborating parties, we have only $N$ parties and\break a subset $D$ of $(N - k + 1)$ dishonest parties that could be collaborating. This simple scenario is a little different from the standard DI scenario. Namely, in the DI scenario, we assume we do not know what the quantum devices or nodes are actually doing. On the other hand, in this scenario variant, some of\break those quantum devices or nodes could work together and apply some\break arbitrary joint operations they could communicate. Therefore, in this new scenario, we do not have this overview network separation, and, in fact, we could say one subset of parties is dishonest, although we do not need to know which of them is indeed dishonest. In this quantum communication network, the honest parties only have uncharacterized quantum devices or quantum nodes. On the other hand, the dishonest ones are allowed to communicate among them, apply classical post-processing operations, and perform joint measurements. In this scenario, we assume the dishonest parties can also\break control their quantum devices. However, in the end, we can obtain the\break statistics, and we still want to analyze the distributed entanglements.
+
+    But the crucial aspect here is that we are actually going to address a DI scenario where we will need a Bell Inequality. The results obtained by the authors demonstrate we can use a particular class of Bell Inequalities to achieve such a strong characterization for this scenario. In this case, the Bell Inequality of interest is called the Svetlichny Inequality, an inequality where each one of the parties gets two inputs and two outputs. This inequality is also known as the Full Correlator Inequality since we only have terms that involve the expected value of the observables of all the parties together. Basically, this correlator results in $1$ if the parity of the parties' measurement outcomes is $0$ and results in $-1$ if the parity of the parties' outcomes is $1$.
+
+    Therefore, this is a family of $N$-partite Svetlichny Inequalities for any number $N$ of parties. Such as any other Bell Inequality, these Svetlichny Inequalities have a classical bound that Quantum Mechanics can violate, as well as they have a (estimated) quantum bound. However, this classical bound is a little more interesting in the sense that when we have more than $N = 2$ parties, we start having a structure for the outcomes of our parties involved, so we do not have only a separable notion for them (e.g., local or non-local), but also a different structure notion, namely a grouping concept.\break This classical bound sets a limit for all the probability distributions in a way we cannot decompose them in the following mathematical form below:
+    
+    From this mathematical form, we can divide the subset of parties into two main groups, where we may have arbitrary collaborations within these groups, but we still have some separate actions. Then, we can take some convex combination of this type of correlation, where we have arbitrary\break correlations within these groups of parties. And, since these correlations are within this local classical bound, we are able to witness a strong genuine\break multipartite non-locality. Thus, we violate the Svetlichny Inequality only when we cannot decompose this probability distribution in this mathematical\break form. Nowadays, the first proposal for the definition of genuine multipartite non-locality, where Svetlichny allowed this joint probability distribution of the group to be arbitrary, is not used anymore because when we abstract from the considered scenario, we usually want to look at non-locality property as an operational framework, what leads to some inconsistencies if we define locality regarding that operational outlook. To overcome this, people often add some assumptions to these joint probability distributions, often assuming\break they have to be non-signaling or one-way signaling, but they cannot be\break arbitrary. However, for our scenario, it turns out that this definition is the one that is interesting because we want to address these collaborating parties that could be realizing an arbitrary action. Another important observation is that this inequality also detects Genuine Multipartite Entanglement (GME) since we would never be able to violate it if the quantum entangled state we want to verify is bi-separable in the standard Bell Inequality scenario.
+
+    \noindent For the Svetlichny Inequality with dishonest parties, the honest action would be the following observable, which is describing a subtraction between two arbitrary Positive Operator-Valued Measure (POVM) elements, one for each outcome (0 and 1), where, in principle, honest actions should apply local actions, but they will have these two global POVM elements instead:
+
+    
+    \section{Self-Testing with Dishonest Parties}
+    \label{sec:self-testing-with-dishonest-parties}
+
+    
+    \section{Outlook}
+    \label{sec:outlook}
+
+    \bibliographystyle{plain}
+
+    \clearpage
+    
+    \bibliography{bibliography}
+    \label{bib:bibliography}
+    
+\end{document}
