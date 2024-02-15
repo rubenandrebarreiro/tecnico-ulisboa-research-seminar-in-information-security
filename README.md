@@ -1,1 +1,1 @@
-# research-seminar-in-information-security
+# Técnico ULisboa - Research Seminar in Information Security
